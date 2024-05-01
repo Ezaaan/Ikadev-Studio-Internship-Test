@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bxvjqmrx6kllu" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export4.png" id="5_ilp36"]
 [ext_resource type="Texture2D" uid="uid://dvkyiw1hew8bn" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export5.png" id="6_6irbg"]
 [ext_resource type="Texture2D" uid="uid://cy81nstyvr5fi" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export6.png" id="7_y1ppd"]
+[ext_resource type="Texture2D" uid="uid://dncjj1kbcu746" path="res://Assets/Sunny Land Collection Files/Packs/Packs/Sunnyland/sprites/cherry/cherry-1.png" id="8_j6xpc"]
 [ext_resource type="AudioStream" uid="uid://dhpm23d8vg3l3" path="res://Audio/GiveItemAudio.mp3" id="8_y5fen"]
+[ext_resource type="Texture2D" uid="uid://5yk3oqcntpe0" path="res://Assets/Sunny Land Collection Files/Packs/Packs/Sunnyland/sprites/gem/gem-1.png" id="9_ghxv7"]
+[ext_resource type="Texture2D" uid="uid://gm8xv8e2yxuy" path="res://Assets/Sunny Land Collection Files/Packs/Packs/Sunnyland/environment/Props/crate.png" id="10_2tpi7"]
+[ext_resource type="Texture2D" uid="uid://ifl6k6bsnrex" path="res://Assets/Sunny Land Collection Files/Packs/Packs/Sunnyland/sprites/frog/idle/frog-idle-1.png" id="11_i8b7t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b18f7"]
 radius = 19.0
@@ -88,18 +92,6 @@ _data = {
 "RESET": SubResource("Animation_5lu7p")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1exiv"]
-load_path = "res://.godot/imported/cherry-1.png-e81423ad3ffce8629ee06e5349ccaf60.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cjsb6"]
-load_path = "res://.godot/imported/gem-1.png-84a376c64d1dc7d0edb659688a0feae8.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_viq5e"]
-load_path = "res://.godot/imported/crate.png-7a626c1f18fee0d511fa0d52a5631ec0.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bh8ul"]
-load_path = "res://.godot/imported/frog-idle-1.png-f27b4cf3acf875b68fd644149fb66d3a.ctex"
-
 [sub_resource type="Curve" id="Curve_41vr8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99536, 0.0697981), 0.0, 0.0, 0, 0]
 point_count = 2
@@ -138,22 +130,22 @@ grow_horizontal = 2
 [node name="Cherry" type="Sprite2D" parent="PanelContainer"]
 visible = false
 position = Vector2(18, 15)
-texture = SubResource("CompressedTexture2D_1exiv")
+texture = ExtResource("8_j6xpc")
 
 [node name="Gem" type="Sprite2D" parent="PanelContainer"]
 visible = false
 position = Vector2(15, 15)
-texture = SubResource("CompressedTexture2D_cjsb6")
+texture = ExtResource("9_ghxv7")
 
 [node name="Box" type="Sprite2D" parent="PanelContainer"]
 visible = false
 position = Vector2(15, 15)
-texture = SubResource("CompressedTexture2D_viq5e")
+texture = ExtResource("10_2tpi7")
 
 [node name="Frog" type="Sprite2D" parent="PanelContainer"]
 visible = false
 position = Vector2(15, 15)
-texture = SubResource("CompressedTexture2D_bh8ul")
+texture = ExtResource("11_i8b7t")
 
 [node name="Sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_y5fen")

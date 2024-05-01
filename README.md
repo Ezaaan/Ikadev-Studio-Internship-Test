@@ -15,3 +15,8 @@ Run ```Delivery Guy.exe ``` in the ```build``` directory
 ```W``` - Jump    
 **Action**  
 ```K``` - Pick up item / Give item
+
+## External Assets Used
+**SunyLand Pack** - https://ansimuz.itch.io/sunny-land-pixel-game-art  
+**Give Item Audio** - https://www.youtube.com/watch?v=AFYWsbUSasw  
+**Pick Up Item Audio** - https://www.youtube.com/watch?v=D9IHzv3wzqo

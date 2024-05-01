@@ -1,0 +1,176 @@
+[gd_scene load_steps=19 format=3 uid="uid://da7pcrpkyrpj8"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/NPC.gd" id="1_yk2nn"]
+[ext_resource type="Texture2D" uid="uid://diwrqo4qbddgu" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export1.png" id="2_1d6rh"]
+[ext_resource type="Texture2D" uid="uid://v5jj3uq3pxhf" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export2.png" id="3_i754o"]
+[ext_resource type="Texture2D" uid="uid://d1w2dvx5wt3dp" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export3.png" id="4_avd41"]
+[ext_resource type="Texture2D" uid="uid://bxvjqmrx6kllu" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export4.png" id="5_ilp36"]
+[ext_resource type="Texture2D" uid="uid://dvkyiw1hew8bn" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export5.png" id="6_6irbg"]
+[ext_resource type="Texture2D" uid="uid://cy81nstyvr5fi" path="res://Assets/Sunny Land Collection Files/Packs/Characters/enemy-ghost/Sprites/No-Particles/transparent-no-particles-export6.png" id="7_y1ppd"]
+[ext_resource type="AudioStream" uid="uid://dhpm23d8vg3l3" path="res://Audio/GiveItemAudio.mp3" id="8_y5fen"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b18f7"]
+radius = 19.0
+height = 44.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx7lq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1d6rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_i754o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_avd41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ilp36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6irbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y1ppd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vgbnm"]
+resource_name = "Idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3]
+}
+
+[sub_resource type="Animation" id="Animation_5lu7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8f8uk"]
+_data = {
+"Idle": SubResource("Animation_vgbnm"),
+"RESET": SubResource("Animation_5lu7p")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1exiv"]
+load_path = "res://.godot/imported/cherry-1.png-e81423ad3ffce8629ee06e5349ccaf60.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cjsb6"]
+load_path = "res://.godot/imported/gem-1.png-84a376c64d1dc7d0edb659688a0feae8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_viq5e"]
+load_path = "res://.godot/imported/crate.png-7a626c1f18fee0d511fa0d52a5631ec0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bh8ul"]
+load_path = "res://.godot/imported/frog-idle-1.png-f27b4cf3acf875b68fd644149fb66d3a.ctex"
+
+[sub_resource type="Curve" id="Curve_41vr8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99536, 0.0697981), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Ghost" type="Area2D"]
+script = ExtResource("1_yk2nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_b18f7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wx7lq")
+animation = &"Idle"
+autoplay = "Idle"
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8f8uk")
+}
+autoplay = "Idle"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_top = -50.0
+offset_right = 15.0
+offset_bottom = -20.0
+grow_horizontal = 2
+
+[node name="Cherry" type="Sprite2D" parent="PanelContainer"]
+visible = false
+position = Vector2(18, 15)
+texture = SubResource("CompressedTexture2D_1exiv")
+
+[node name="Gem" type="Sprite2D" parent="PanelContainer"]
+visible = false
+position = Vector2(15, 15)
+texture = SubResource("CompressedTexture2D_cjsb6")
+
+[node name="Box" type="Sprite2D" parent="PanelContainer"]
+visible = false
+position = Vector2(15, 15)
+texture = SubResource("CompressedTexture2D_viq5e")
+
+[node name="Frog" type="Sprite2D" parent="PanelContainer"]
+visible = false
+position = Vector2(15, 15)
+texture = SubResource("CompressedTexture2D_bh8ul")
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_y5fen")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_41vr8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
